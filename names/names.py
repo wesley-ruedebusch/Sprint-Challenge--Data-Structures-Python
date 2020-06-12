@@ -14,11 +14,22 @@ f.close()
 duplicates = []  # Return the list of duplicates in this data structure
 
 # Replace the nested for loops below with your improvements
-for name_1 in names_1:
-    for name_2 in names_2:
-        if name_1 == name_2:
-            duplicates.append(name_1)
+#for name_1 in names_1:
+    #for name_2 in names_2:
+        #if name_1 == name_2:
+            #duplicates.append(name_1)
 
+tree = BSTNode("val")
+# set name_1 as a BST
+for name in names_1:
+    tree.insert(name)
+# find matches from name_2 in BST
+for other_name in names_2:
+    if tree.contains(other_name):
+        duplicates.append(other_name) 
+
+ #run time of 0.10903239250183105 seconds
+ 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
 print (f"runtime: {end_time - start_time} seconds")

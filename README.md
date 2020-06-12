@@ -39,9 +39,9 @@ buffer = RingBuffer(3)
 
 buffer.get()   # should return []
 
-buffer.append('a')
-buffer.append('b')
-buffer.append('c')
+buffer.append('a') e
+buffer.append('b') f
+buffer.append('c') g
 
 buffer.get()   # should return ['a', 'b', 'c']
 
