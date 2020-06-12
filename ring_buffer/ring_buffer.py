@@ -23,4 +23,12 @@ class RingBuffer:
         
 
     def get(self):
-        pass
+        buffer = []
+
+        item = self.storage.head
+
+        while item != None:
+            buffer.append(item.get_value())
+            item = item.get_next()
+
+        return buffer
