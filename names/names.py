@@ -1,4 +1,6 @@
 import time
+from binary_search_tree_copy import BSTNode
+
 
 start_time = time.time()
 
@@ -13,10 +15,26 @@ f.close()
 duplicates = []  # Return the list of duplicates in this data structure
 
 # Replace the nested for loops below with your improvements
-for name_1 in names_1:
-    for name_2 in names_2:
-        if name_1 == name_2:
-            duplicates.append(name_1)
+# for name_1 in names_1:
+#     for name_2 in names_2:
+#         if name_1 == name_2:
+#             duplicates.append(name_1)
+
+# my solution->
+# for name in names_1:
+#     if name in names_2:
+#         duplicates.append(name)
+
+tree = BSTNode("val") #using val as a place holder
+
+# set name_1 as a BST
+for name in names_1:
+    tree.insert(name)
+# find matches from name_2 in BST
+for other_name in names_2:
+    if tree.contains(other_name):
+        duplicates.append(other_name)
+
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
